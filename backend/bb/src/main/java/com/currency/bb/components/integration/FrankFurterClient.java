@@ -1,7 +1,6 @@
 package com.currency.bb.components.integration;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;

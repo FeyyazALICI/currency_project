@@ -18,12 +18,19 @@
   <script src="../js/home.js" defer></script>
 </head>
 <body class="bg-light">
-  <div id="main-div" style="width: 100vw;">
+  <div id="main-div" style="width: 100vw; height: 100vh; font-size:5vh; font-weight: bold; color:orangered;">
     <div class="row">
-      <div class="col" onclick="navigate('../../external_api/html/external_api.html')">
+      <div class="col" onclick="navigate('../../external_api/html/external_api.html')" 
+        style="border:solid; height:100vh; 
+          background-image: url('../../assets/pictures/external_api.png'); background-size: cover;
+          text-align: center; align-items: center; justify-content: center; display: flex;">
         External Api
       </div>
-      <div class="col" onclick="navigate('../../batch_ops/html/batch_ops.html')">
+      <div class="col" onclick="navigate('../../batch_ops/html/batch_ops.html')" 
+        style="border:solid; height:100vh; 
+          color: orangered;
+          background-image: url('../../assets/pictures/batch.png'); background-size: cover;
+          text-align: center; align-items: center; justify-content: center; display: flex;">
         Batch Operations
       </div>
     </div>
@@ -34,3 +41,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+  

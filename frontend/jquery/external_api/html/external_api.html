@@ -18,7 +18,57 @@
     <script src="../js/external_api.js" defer></script>
 </head>
 <body class="bg-light">
-  <div id="main-div" style="width: 100vw;">
+  <div id="main-div" style="width: 100vw; margin: 0 auto; padding: 20px; font-family: 'Times New Roman', Times, serif;">
+    <!-- Header -->
+    <h1 class="text-center" style="color:orangered">EXTERNAL API</h1>
+
+    <!-- Description -->
+    <div class = "container text-center" style="width:1500px;">
+      <div class="row" style="width:1500px;">
+        <div class="col" style="width:600px;  padding: 20px; border-right: 2px dashed black;  margin: 0 auto; float: left;">
+          <h3  class="text-center"><b>Source & Functionality</b></h3>
+          <div class="row" style="width:600px;">
+            <div class="col"  style="width:100px;">
+              <p><u><b>Functionality:</b></u></p>
+            </div>
+            <div class="col"  style="width:400px;">
+              <p>This page contains basic CRUD functions.</p>
+            </div>
+          </div>
+
+          <div class="row" style="width:600px;">
+            <div class="col"  style="width:100px;">
+              <p><u><b>External Api Source:</b></u></p>
+            </div>
+            <div class="col"  style="width:400px;">
+              <p>https://api.frankfurter.dev/</p>
+            </div>
+          </div>
+
+          <div class="row" style="width:600px;">
+            <div class="col"  style="width:100px;">
+              <p><u><b>Springboot micro-service:</b></u></p>
+            </div>
+            <div class="col"  style="width:400px;">
+              <p>bb</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" style="width:800px; padding: 20px;  margin: 0 auto; ">
+          <h3  class="text-center"><b>Page Details</b></h3>
+          <div class="row" style="width:800px;">
+            <div class="col"  style="width:800px;">
+              <p>This page is a frontend user layout of springboot microservice called 'bb'. The springboot microservice is a communication layer between FrankFurter Api and user frontend. </p>
+              <p>The general structure of the project consist of common-components-config. Inside component: api-bussiness-dao, in addition to the component layers, integration layer was added. (FrankFurterClient.java) </p>
+              <p>Integration part directly connects to the bussiness-service layer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-center" style="color:darkcyan; margin-top:30px;">Basic CRUD Operations</h2>
+
     <div class="row">
       <div class="col">
         <button id="go_to_weapon_based_stats" class="btn btn-success mt-3" style="float: right; margin-right: 100px;" 

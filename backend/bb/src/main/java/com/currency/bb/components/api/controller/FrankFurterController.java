@@ -22,7 +22,7 @@ import jakarta.servlet.http.HttpServletRequest;
 public class FrankFurterController {
     
     private final FrankFurterService service;
-    private HttpHeaderCreator httpHeaderCreator;
+    private final HttpHeaderCreator httpHeaderCreator;
 
     public FrankFurterController(
         FrankFurterService service,
@@ -35,7 +35,7 @@ public class FrankFurterController {
     // payload: {"currency": "USD"}
     @PostMapping("/latest_with_base")
     public ResponseEntity getLatestCurrencyRatesByBaseCurrency(HttpServletRequest request, @RequestBody HashMap<String, String> payload   ) throws Exception{
-        String requestType = "GET";
+        String requestType = "POST";
         try{
             String currency = payload.get("currency");
             FrankfurterApiDTO data = service.getLatestRates(   currency   );
@@ -81,3 +81,4 @@ public class FrankFurterController {
     }
     
 }
+ 
