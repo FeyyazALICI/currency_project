@@ -1,4 +1,4 @@
-package com.currency.bb.common;
+package com.currency_project.def.common;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -42,7 +42,6 @@ public class CurrencyConstants {
         currencies.add("TRL");
         currencies.add("USD");
         currencies.add("ZAR");
-        currencies.add("CNY");
 
         CURRENCY_SET = Collections.unmodifiableSet(currencies);
     }

@@ -1,4 +1,4 @@
-package com.currency.bb.components.api.controllerInterface;
+package com.currency_project.def.components.api.controllerInterface;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.currency.bb.components.bussiness.dto.CurrencyRatesDTO;
+import com.currency_project.def.components.bussiness.dto.CurrencyRatesDTO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;

@@ -1,0 +1,57 @@
+<div class ="container" id="baseHtml">
+  <h4 style="color:darkcyan">Get Latest Currencies with Selected Base</h4>
+          <div class="row" style="margin-top:15px;">
+            <div class="col">
+              <p><b>URL:</b></p>
+            </div>
+            <div class="col" style="word-wrap: break-word;">
+              <p><i>http://localhost:9001/frank/excel/latest_with_base</i></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p><b>TYPE:</b></p>
+            </div>
+            <div class="col">
+              <i>POST</i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p><b>Payload Example:</b></p>
+            </div>
+            <div class="col">
+              <i>{"currency": "USD"}</i>
+            </div>
+          </div>
+          <div class="row">
+              <p><b>Description:</b></p>
+              <p><i>This end point gives the latest currency values repect to a selected base currency</i></p>
+          </div>
+          <div class="row">
+              <p><b>Base Options</b></p>
+              <div class="col">
+                <button id="getlatest_with_base_dollar"   class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForLatestWithBase('USD')">USD</button>
+              </div>
+              <div class="col">
+                <button id="getlatest_with_base_euro"     class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForLatestWithBase('EUR')">EUR</button>
+              </div>
+              <div class="col">
+                <button id="getlatest_with_base_gbp"      class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForLatestWithBase('GBP')">GBP</button>
+              </div>
+              <div class="col">
+                <button id="getlatest_with_base_cny"      class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForLatestWithBase('CNY')">CNY</button>
+              </div>
+          </div>
+          <div class="row" style="margin-top:20px;">
+            <p><b>Current Payload</b></p>
+            <p><i id="current-payload-for-latest">{ "currency": "" }</i></p>
+          </div>
+          <button id="getLatestWithBase" class="btn btn-info mt-3"                       style="white-space: nowrap;"
+            onclick='getExcelData("http://localhost:9001/frank/excel/latest_with_base", "current-payload-for-latest")'>GET DATA</button>
+          <form id="download-get-latestcurrency-with-base" method="POST" action="http://localhost:9001/frank/excel/latest_with_base" style="display: none;"></form>
+</div>

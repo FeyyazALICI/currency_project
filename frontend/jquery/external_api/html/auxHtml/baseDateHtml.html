@@ -1,0 +1,63 @@
+<div class ="container" id="baseDateHtml">
+          <h4 style="color:darkcyan">Get Historical Data about Currencies with Selected Base</h4>
+          <div class="row" style="margin-top:15px;">
+            <div class="col">
+              <p><b>URL:</b></p>
+            </div>
+            <div class="col" style="word-wrap: break-word;">
+              <p><i>http://localhost:9001/frank/excel/historical_with_base</i></p>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col">
+              <p><b>TYPE:</b></p>
+            </div>
+            <div class="col">
+              <i>POST</i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p><b>Payload Example:</b></p>
+            </div>
+            <div class="col">
+              <i>{"currency": "USD", "date": "1999-01-04"}</i>
+            </div>
+          </div>
+          <div class="row">
+              <p><b>Description:</b></p>
+              <p><i>This end point gives the historical rates for currencies with selected Base & date</i></p>
+          </div>
+          <div class="row">
+              <p><b>Base Options</b></p>
+              <div class="col">
+                <button id="gethistorical_with_base_dollar"   class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForHistoricalWithBase('USD')">USD</button>
+              </div>
+              <div class="col">
+                <button id="gethistorical_with_base_euro"     class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForHistoricalWithBase('EUR')">EUR</button>
+              </div>
+              <div class="col">
+                <button id="gethistorical_with_base_gbp"      class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForHistoricalWithBase('GBP')">GBP</button>
+              </div>
+              <div class="col">
+                <button id="gethistorical_with_base_cny"      class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForHistoricalWithBase('CNY')">CNY</button>
+              </div>
+          </div>
+          <div style="margin-top: 15px;">
+            <p><b>Pick Date</b></p>
+            <input type="date" id="datePicker" />
+          </div>
+          <div class="row" style="margin-top:20px;">
+            <p><b>Current Payload</b></p>
+            <p><i id="current-payload-for-historical">{ "currency": "" }</i></p>
+          </div>
+          <button id="getCurrencyWithBaseWithDate" class="btn btn-info mt-3"
+            style="white-space: nowrap;" disabled
+            onclick="getExcelData('http://localhost:9001/frank/excel/historical_with_base', 'current-payload-for-historical')">
+            GET DATA
+          </button>
+</div>

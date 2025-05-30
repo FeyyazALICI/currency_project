@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.currency.bb.common.HttpHeaderCreator;
+import com.currency.bb.components.api.controllerInterface.FrankFurterControllerInterface;
 import com.currency.bb.components.bussiness.dto.FrankfurterApiDTO;
 import com.currency.bb.components.bussiness.service.FrankFurterService;
 
@@ -19,7 +20,7 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @RequestMapping("/frank")
 @RestController
-public class FrankFurterController {
+public class FrankFurterController implements FrankFurterControllerInterface{
     
     private final FrankFurterService service;
     private final HttpHeaderCreator httpHeaderCreator;
@@ -34,6 +35,7 @@ public class FrankFurterController {
 
     // payload: {"currency": "USD"}
     @PostMapping("/latest_with_base")
+    @Override
     public ResponseEntity getLatestCurrencyRatesByBaseCurrency(HttpServletRequest request, @RequestBody HashMap<String, String> payload   ) throws Exception{
         String requestType = "POST";
         try{
@@ -55,6 +57,7 @@ public class FrankFurterController {
 
     // payload: {"currency": "USD", "date": "1999-01-04"}
     @PostMapping("/historical_with_base")
+    @Override
     public ResponseEntity<FrankfurterApiDTO> getHistoricalRatesWithBase(@RequestBody HashMap<String, String> payload) throws Exception{
         String base = payload.get("currency");
         String date = payload.get("date"); // "1999-01-04"
@@ -65,6 +68,7 @@ public class FrankFurterController {
 
     // payload: {"currency": "USD", "date": "1999-01-04", "target": "EUR"}
     @PostMapping("/historical_with_base_with_limited_target")
+    @Override
     public ResponseEntity<FrankfurterApiDTO> getHistoricalRatesWithBaseWithLimitedTarget(@RequestBody HashMap<String, String> payload) throws Exception{
         String base = payload.get("currency");
         String date = payload.get("date"); // "1999-01-04"
@@ -75,6 +79,7 @@ public class FrankFurterController {
 
 
     @GetMapping("/currencies")
+    @Override
     public ResponseEntity<HashMap<String, String>> getCurrencyWithExplanations() throws Exception{
         HashMap<String, String> result = service.getCurrencyWithExplanations();
         return ResponseEntity.ok(result);

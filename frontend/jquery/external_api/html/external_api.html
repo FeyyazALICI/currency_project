@@ -16,6 +16,10 @@
   <!-- Your custom JS -->
     <script src="../../common/js/common.js" defer></script>
     <script src="../js/external_api.js" defer></script>
+    <script src="../js/auxJs/external_api_historical_with_targeted.js" defer></script>
+    <script src="../js/auxJs/external_api_currency_description.js" defer></script>
+    <script src="../js/auxJs/external_api_historical_with_base.js" defer></script>
+    <script src="../js/auxJs/base.js" defer></script>
 </head>
 <body class="bg-light">
   <div id="main-div" style="width: 100vw; margin: 0 auto; padding: 20px; font-family: 'Times New Roman', Times, serif;">
@@ -67,7 +71,45 @@
       </div>
     </div>
 
-    <h2 class="text-center" style="color:darkcyan; margin-top:30px;">Basic CRUD Operations</h2>
+    <h2 class="text-center" style="color:darkcyan; margin-top:30px; ">Basic Operations</h2>
+    <div class="container text-center" style="width:1600px;">
+      <div class="row text-center" style="width:1600px;">
+        <div class="col-3"    style="padding: 20px; border-right: 2px dashed black;">
+          <div id="baseHtml">
+            <!-- HTML IMPORT -->
+          </div> 
+        </div>
+
+
+
+
+
+        <div class="col-3"    style="padding: 20px; border-right: 2px dashed black;">
+          <div id="baseDateHtml">
+            <!-- HTML IMPORT -->
+          </div> 
+        </div>
+
+
+
+
+
+        
+        <div class="col-3"    style="padding: 20px; border-right: 2px dashed black;">
+          <div id="baseDateTargetHtml">
+            <!-- HTML IMPORT -->
+          </div> 
+        </div>
+
+
+        <div class="col-3"    style="padding: 20px;"> 
+          <div id="currencyHtml">
+            <!-- HTML IMPORT -->
+          </div> 
+        </div>
+
+      </div>
+    </div>
 
     <div class="row">
       <div class="col">

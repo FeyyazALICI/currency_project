@@ -1,4 +1,4 @@
-package com.currency.bb.components.api.controller;
+package com.currency_project.def.components.api.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.currency.bb.common.ErrorMessageDerived;
-import com.currency.bb.common.HttpHeaderCreator;
-import com.currency.bb.components.api.controllerInterface.CurrencyRatesControllerInterface;
-import com.currency.bb.components.bussiness.service.CurrencyRatesService;
+import com.currency_project.def.common.ErrorMessageDerived;
+import com.currency_project.def.common.HttpHeaderCreator;
+import com.currency_project.def.components.api.controllerInterface.CurrencyRatesControllerInterface;
+import com.currency_project.def.components.bussiness.service.CurrencyRatesService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
-import com.currency.bb.components.bussiness.dto.CurrencyRatesDTO;
+import com.currency_project.def.components.bussiness.dto.CurrencyRatesDTO;
 import org.springframework.http.HttpHeaders;
 
 @RequestMapping("/bb")
@@ -62,7 +62,7 @@ public class CurrencyRatesController implements CurrencyRatesControllerInterface
     @Override
     @PostMapping("/id")
     public ResponseEntity getDataById(HttpServletRequest request, @RequestBody HashMap<String, String> dataReceived   ){
-        String requestType = "GET";
+        String requestType = "POST";
         try{
             Long id = Long.valueOf(dataReceived.get("id"));
             CurrencyRatesDTO data = service.getDataById(   id   );
