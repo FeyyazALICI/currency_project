@@ -1,0 +1,86 @@
+<div class ="container" id="tsHtml">
+          <h4 style="color:darkcyan">Timeline Of Specific Target Currency respect to Base Currency</h4>
+          <div class="row" style="margin-top:15px;">
+            <div class="col">
+              <p><b>URL:</b></p>
+            </div>
+            <div class="col" style="word-wrap: break-word;">
+              <p><i>http://localhost:9001/frank/excel/d/ts</i></p>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col">
+              <p><b>TYPE:</b></p>
+            </div>
+            <div class="col">
+              <i>POST</i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p><b>Payload Example:</b></p>
+            </div>
+            <div class="col">
+              <i>{"currency": "USD", "dateOnSet": "1999-01-01", "dateEnd": "1999-02-01", "target": "EUR"}</i>
+            </div>
+          </div>
+          <div class="row">
+              <p><b>Description:</b></p>
+              <p><i>This end point gives the historical timeline of a target currency respect to base currency.</i></p>
+          </div>
+          <div class="row">
+              <p><b>Base Options</b></p>
+              <div class="col">
+                <button id="ts_base_dollar"   class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForTsBase('USD', this)">USD</button>
+              </div>
+              <div class="col">
+                <button id="ts_base_euro"     class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForTsBase('EUR', this)">EUR</button>
+              </div>
+              <div class="col">
+                <button id="ts_base_gbp"      class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForTsBase('GBP', this)">GBP</button>
+              </div>
+              <div class="col">
+                <button id="ts_base_cny"      class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="updatePayloadForTsBase('CNY', this)">CNY</button>
+              </div>
+          </div>
+          <div style="margin-top: 15px;">
+            <p><b>Pick Date For Timeline Onset</b></p>
+            <input type="date" id="datePickerTsOnset" />
+          </div>
+          <div style="margin-top: 15px;">
+            <p><b>Pick Date For Timeline End</b></p>
+            <input type="date" id="datePickerTsEnd" />
+          </div>
+          <div class="row" style="margin-top:15px;">
+              <p><b>Pick Target</b></p>
+              <div class="col">
+                <button id="ts_target_dollar"   class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="targetTsF('USD', this)">USD</button>
+              </div>
+              <div class="col">
+                <button id="ts_target_euro"     class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="targetTsF('EUR', this)">EUR</button>
+              </div>
+              <div class="col">
+                <button id="ts_target_gbp"      class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="targetTsF('GBP', this)">GBP</button>
+              </div>
+              <div class="col">
+                <button id="ts_target_cny"      class="btn btn-warning mt-3"                        style="white-space: nowrap;"
+                  onclick="targetTsF('CNY', this)">CNY</button>
+              </div>
+          </div>
+          <div class="row" style="margin-top:20px;">
+            <p><b>Current Payload</b></p>
+            <p><i id="current-payload-for-ts">{ "currency": "", "dateOnSet": "", "dateEnd": "", "target": ""}</i></p>
+          </div>
+          <button id="getDataButtonTs" class="btn btn-info mt-3"
+            style="white-space: nowrap;" disabled
+            onclick="getExcelDataTs('http://localhost:9001/frank/excel/d/ts', 'current-payload-for-ts')">
+            GET DATA
+          </button>
+</div>

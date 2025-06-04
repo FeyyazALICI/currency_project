@@ -1,4 +1,4 @@
-package com.currency.bb.components.api.controller;
+package com.currency.bb.components.api.controller.excel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,27 +14,32 @@ import org.springframework.web.bind.annotation.RestController;
 import com.currency.bb.common.HttpHeaderCreator;
 import com.currency.bb.components.bussiness.dto.FrankfurterApiDTO;
 import com.currency.bb.components.bussiness.service.FrankFurterDerivedService;
+import com.currency.bb.components.bussiness.service.excel.FrankfurtherDerivedExcelService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-@RequestMapping("/frank/d")     // d -> derived
+@RequestMapping("/frank/excel/d")
 @RestController
-public class FrankFurterDerivedController {
+public class FrankFurterDerivedControllerExcel{
     
     private final FrankFurterDerivedService service;
-    private HttpHeaderCreator httpHeaderCreator;
+    private final FrankfurtherDerivedExcelService excelService;
+    private final HttpHeaderCreator httpHeaderCreator;
 
-    public FrankFurterDerivedController(
+    public FrankFurterDerivedControllerExcel(
         FrankFurterDerivedService service,
-        HttpHeaderCreator httpHeaderCreator
+        HttpHeaderCreator httpHeaderCreator,
+        FrankfurtherDerivedExcelService excelService
     ){
         this.service = service;
         this.httpHeaderCreator = httpHeaderCreator;
+        this.excelService = excelService;
     }
 
     // payload: {"currency": "USD", "dateOnSet": "1999-01-01", "dateEnd": "1999-02-01", "target": "EUR"}
-    @PostMapping("/ts") // ts -> time_spesific
-    public ResponseEntity getLatestCurrencyRatesByBaseCurrency(HttpServletRequest request, @RequestBody HashMap<String, String> payload   ) throws Exception{
+    @PostMapping("/ts") // ts -> time specific
+    public ResponseEntity<byte[]> timeLineOfSpecificCurrency(HttpServletRequest request, @RequestBody HashMap<String, String> payload   ) throws Exception{
+
         String requestType = "POST";
         try{
             String base         = payload.get("currency");
@@ -43,18 +48,18 @@ public class FrankFurterDerivedController {
             String target       = payload.get("target");
             ArrayList<FrankfurterApiDTO> data = service.timeLineOfSpecificCurrency(   base, dateOnSet, dateEnd, target   );
             if(   data!=null   ){
-                HttpHeaders responseHeader = this.httpHeaderCreator.okResponseHeader(request, requestType);
-                return new ResponseEntity<>(data, responseHeader, HttpStatus.OK);
+                ResponseEntity<byte[]> dataExcel = this.excelService.exportAllDataToExcel(data);
+                return dataExcel;
             }else{
                 HttpHeaders responseHeader = this.httpHeaderCreator.notFoundResponseHeader(request, requestType);
                 return new ResponseEntity<>(null, responseHeader, HttpStatus.NOT_FOUND);
             }
         }catch(Exception e){
+            e.printStackTrace();
             HttpHeaders responseHeader = this.httpHeaderCreator.internalServerErrorResponseHeader(request, requestType);
             return new ResponseEntity<>(null, responseHeader, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    
 
 }

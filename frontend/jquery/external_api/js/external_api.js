@@ -79,7 +79,7 @@ function getExcelData(urlReceived, payloadElementId) {
 
 
 
-fetch('auxHtml/baseHtml.html')
+fetch('auxHtml/base.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('baseHtml').innerHTML = html;
@@ -97,18 +97,18 @@ fetch('auxHtml/baseHtml.html')
 
     document.body.appendChild(scriptBase);
   })
-  .catch(err => console.error('Failed to load baseHtml.html:', err));
+  .catch(err => console.error('Failed to load base.html:', err));
 
 
 
-fetch('auxHtml/baseDateHtml.html')
+fetch('auxHtml/baseDate.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('baseDateHtml').innerHTML = html;
 
     // After HTML is injected, dynamically run the JS
     const scriptBaseDate = document.createElement('script');
-    scriptBaseDate.src = '../js/auxJs/external_api_historical_with_base.js';
+    scriptBaseDate.src = '../js/auxJs/baseDate.js';
 
     // Wait for script to load, then initialize manually (if needed)
     scriptBaseDate.onload = () => {
@@ -125,14 +125,14 @@ fetch('auxHtml/baseDateHtml.html')
 
 
 
-fetch('auxHtml/baseDateTargetHtml.html')
+fetch('auxHtml/baseDateTarget.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('baseDateTargetHtml').innerHTML = html;
 
     // After HTML is injected, dynamically run the JS
     const script = document.createElement('script');
-    script.src = '../js/auxJs/external_api_historical_with_targeted.js';
+    script.src = '../js/auxJs/baseDateTarget.js';
 
     // Wait for script to load, then initialize manually (if needed)
     script.onload = () => {
@@ -143,17 +143,17 @@ fetch('auxHtml/baseDateTargetHtml.html')
 
     document.body.appendChild(script);
   })
-  .catch(err => console.error('Failed to load baseDateTargetHtml.html:', err));
+  .catch(err => console.error('Failed to load baseDateTarget.html:', err));
 
 
-  fetch('auxHtml/currencyHtml.html')
+  fetch('auxHtml/currency.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('currencyHtml').innerHTML = html;
 
     // After HTML is injected, dynamically run the JS
     const script2 = document.createElement('script');
-    script2.src = '../js/auxJs/external_api_currency_description.js';
+    script2.src = '../js/auxJs/currency.js';
 
     // Wait for script to load, then initialize manually (if needed)
     script2.onload = () => {
@@ -164,7 +164,7 @@ fetch('auxHtml/baseDateTargetHtml.html')
 
     document.body.appendChild(script2);
   })
-  .catch(err => console.error('Failed to load baseDateTargetHtml.html:', err));
+  .catch(err => console.error('Failed to load currency.html:', err));
 
 
 

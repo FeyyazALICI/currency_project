@@ -11,17 +11,21 @@
   <script src="../../libs/jquery-3.6.0.min.js"></script>
 
   <!-- Your custom JS -->
-    <script src="../../common/js/common.js" defer></script>
-    <script src="../js/external_api.js" defer></script>
-    <script src="../js/auxJs/baseDateTarget.js" defer></script>
-    <script src="../js/auxJs/currency.js" defer></script>
-    <script src="../js/auxJs/baseDate.js" defer></script>
-    <script src="../js/auxJs/base.js" defer></script>
+   <script src="../../common/js/common.js" defer></script>
+  <script src="../js/derived_api_ops.js" defer></script>
+  <script src="../js/auxJs/ts.js" defer></script>
 </head>
 <body class="bg-light">
   <div id="main-div" style="width: 100vw; margin: 0 auto; padding: 20px; font-family: 'Times New Roman', Times, serif;">
     <!-- Header -->
-    <h1 class="text-center" style="color:orangered">EXTERNAL API</h1>
+    <h1 class="text-center" style="color:orangered">DERIVED API OPS</h1>
+
+    <!-- Description -->
+    <div class = "container text-center" style="width:1500px;">
+      <div class="row" style="width:1500px;">
+        
+      </div>
+    </div>
 
     <!-- Description -->
     <div class = "container text-center" style="width:1500px;">
@@ -33,16 +37,16 @@
               <p><u><b>Functionality:</b></u></p>
             </div>
             <div class="col"  style="width:400px;">
-              <p>This page contains basic CRUD functions.</p>
+              <p>This page contains derived functions based on FrankFurterController's basic CRUD functions.</p>
             </div>
           </div>
 
           <div class="row" style="width:600px;">
             <div class="col"  style="width:100px;">
-              <p><u><b>External Api Source:</b></u></p>
+              <p><u><b>CRUD Api Source:</b></u></p>
             </div>
             <div class="col"  style="width:400px;">
-              <p>https://api.frankfurter.dev/</p>
+              <p>http://localhost:9001/frank/</p>
             </div>
           </div>
 
@@ -51,7 +55,7 @@
               <p><u><b>Springboot micro-service:</b></u></p>
             </div>
             <div class="col"  style="width:400px;">
-              <p>bb/FrankFurterController</p>
+              <p>bb/FrankFurterDerivedController</p>
             </div>
           </div>
         </div>
@@ -59,53 +63,26 @@
           <h3  class="text-center"><b>Page Details</b></h3>
           <div class="row" style="width:800px;">
             <div class="col"  style="width:800px;">
-              <p>This page is a frontend user layout of springboot microservice called 'bb'. The springboot microservice is a communication layer between FrankFurter Api and user frontend. </p>
-              <p>The general structure of the project consist of common-components-config. Inside component: api-bussiness-dao, in addition to the component layers, integration layer was added. (FrankFurterClient.java) </p>
-              <p>Integration part directly connects to the bussiness-service layer.</p>
+              <p>This page is a frontend user layout of springboot microservice called 'bb'. This layer uses the CRUD functions to create more advanced operations. </p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <h2 class="text-center" style="color:darkcyan; margin-top:30px; ">Basic Operations</h2>
+      
+
+    <!-- Ops -->
+    <h2 class="text-center" style="color:darkcyan; margin-top:30px; ">Derived Operations</h2>
     <div class="container text-center" style="width:1600px;">
       <div class="row text-center" style="width:1600px;">
-        <div class="col-3"    style="padding: 20px; border-right: 2px dashed black;">
-          <div id="baseHtml">
-            <!-- HTML IMPORT -->
+        <div class="col-12"    style="padding: 20px;">   <!-- arange here respect to how many columns u wanna --> <!-- add this to styles end of border-right: 2px dashed black; if more than one column -->
+          <div id="tsHtml">
+            <!-- content wll be filled by js -->
           </div> 
         </div>
-
-
-
-
-
-        <div class="col-3"    style="padding: 20px; border-right: 2px dashed black;">
-          <div id="baseDateHtml">
-            <!-- HTML IMPORT -->
-          </div> 
-        </div>
-
-
-
-
-
-        
-        <div class="col-3"    style="padding: 20px; border-right: 2px dashed black;">
-          <div id="baseDateTargetHtml">
-            <!-- HTML IMPORT -->
-          </div> 
-        </div>
-
-
-        <div class="col-3"    style="padding: 20px;"> 
-          <div id="currencyHtml">
-            <!-- HTML IMPORT -->
-          </div> 
-        </div>
-
       </div>
+      
     </div>
 
     <div class="row">
@@ -114,14 +91,9 @@
           onclick="navigate('../../home/html/home.html')">Home</button>
       </div>
     </div>
-
-
-
   </div>
+
   <!-- Bootstrap JS (no integrity check) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
